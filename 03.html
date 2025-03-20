@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap"
+        rel="stylesheet">
+
+    <title>Image Carousel</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0px 0px 0px 0px;
+            padding: 0px 0px 0px 0px;
+            background-size: 100% auto;
+            background-image: url(./backgrouns/fon.jpg);
+        }
+
+        .header-container {
+            margin-bottom: 70px;
+        }
+
+        #header-logo {
+            width: 98.8vw;
+        }
+
+        .slideshow-container {
+            width: 1100px;
+            position: relative;
+            margin: auto;
+            margin: 10px;
+            object-fit: cover;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin: -7rem 30rem 0rem 30rem;
+            padding: 10%;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        } */
+
+        /*
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        */
+
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #717171;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        #prev_img_0 {
+            box-sizing: border-box;
+            margin-left: 10px;
+            width: 10rem;
+        }
+
+        #prev_img_1 {
+            box-sizing: border-box;
+            margin-right: 10px;
+            width: 10rem;
+        }
+
+        .rubik-dirt-regular {
+            font-family: "Rubik Dirt", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .sofia-sans {
+            font-family: "Sofia Sans", serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-container">
+        <center>
+            <img id="header-logo" src="./frames/22.png" alt="">
+        </center>
+    </div>
+
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <div class="boshka-contt">
+            <img style="width: 500px" src="./frames/infulaBBB3.gif" alt="">
+        </div>
+    </div>
+    <style>
+        .boshka-contt {
+            height: 500px !important;
+        }
+        .boshka-contt > img {
+            display: block;
+            margin-top: -140px;
+        }
+    </style>
+
+<!-- <div class="carousel-ly">
+    <div class="carousel">
+        <div class="carousel-images">
+            <img src="./gallery/carousell/1.jpg" alt="Фото 1" class="active">
+            <img src="./gallery/carousell/2.jpg" alt="Фото 2">
+            <img src="./gallery/carousell/3.jpg" alt="Фото 3">
+            <img src="./gallery/carousell/4.jpg" alt="Фото 4">
+            <img src="./gallery/carousell/5.jpg" alt="Фото 5">
+        </div>
+    </div>
+</div>
+<style>
+    .carousel-ly {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+    .carousel {
+        position: relative;
+        width: 80%;
+        overflow: hidden;
+    }
+
+    .carousel-images {
+        display: flex;
+        transition: transform 1s ease;
+
+    }
+
+    .carousel-images img {
+        width: 800px;
+        height: auto;
+        object-fit: cover;
+        transition: transform 1s ease;
+    }
+
+    .carousel-images img:not(.active) {
+        transform: scale(0.75);
+        opacity: 0.5;
+    }
+
+    .carousel-images img.active {
+        transform: scale(1);
+        opacity: 1;
+    }
+</style> -->
+<!-- <script>
+    const images = document.querySelectorAll('.carousel-images img');
+let currentIndex = 0;
+
+function showNextImage() {
+    images[currentIndex].classList.remove('active');
+    currentIndex = (currentIndex + 1) % images.length;
+    images[currentIndex].classList.add('active');
+    updateCarouselPosition();
+}
+
+function updateCarouselPosition() {
+    const offset = -currentIndex * 100;
+    document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+}
+
+setInterval(showNextImage, 3000);
+</script> -->
+
+    <div class="auto-gallery-container">
+        <div id="gallery-id" class="gallery">
+            <img src="./gallery/carousell/1.jpg" class="active" alt="Image 1">
+            <img src="./gallery/carousell/2.jpg" alt="Image 2">
+            <img src="./gallery/carousell/3.jpg" alt="Image 3">
+            <img src="./gallery/carousell/4.jpg" alt="Image 4">
+            <img src="./gallery/carousell/5.jpg" alt="Image 5">
+
+        </div>
+    </div>
+    <div class="signs-cont">
+        <div class="signn-1"></div>
+    </div>
+    <style>
+        .signs-cont {
+            display: flex;
+            justify-content: center;
+            margin-top: 52px;
+        }
+        .signs-cont-2 {
+            margin-top: -260px;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 42px;
+        }
+        .signn-1 {
+            background-image: url('./gallery/signs/1.png');
+        }
+        .signn-2 {
+            background-image: url('./gallery/signs/2.png');
+            width: 700px;
+            background-repeat: no-repeat;
+            height: 350px;
+            background-size: contain;
+            background-position: center;
+        }
+        .signn-3 {
+            background-image: url('./gallery/signs/3.png');
+            width: 700px;
+            background-repeat: no-repeat;
+            height: 350px;
+            background-size: contain;
+            background-position: center;
+        }
+        .signn-1 {
+            width: 600px;
+            background-repeat: no-repeat;
+            height: 300px;
+            background-size: contain;
+            background-position: center;
+        }
+        .auto-gallery-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .gallery {
+            box-sizing: border-box;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .gallery img {
+            width: 100%;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            transform: translateX(100%);
+        }
+
+        .gallery img.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .gallery img.exit {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+    </style>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.gallery img');
+
+        function showNextImage() {
+            images[currentIndex].classList.add('exit');
+            setTimeout(() => {
+                images[currentIndex].classList.remove('active', 'exit');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('active');
+            }, 1000); // Время должно совпадать с длительностью анимации
+        };
+
+        function someSize() {
+            var this_width = window.innerWidth;
+            var this_size = this_width * 0.7;
+
+            document.getElementById("gallery-id").style.width = `${this_size}px`;
+            document.getElementById("gallery-id").style.height = `${this_size / 2}px`;
+        };
+
+        setInterval(showNextImage, 3000);
+        someSize();
+    </script>
+
+    <div class="gallery-container">
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 5</div>
+                <img src="./gallery/c-2/1.jpg" style="width:100%">
+                <div class="text op-0">Caption Text</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 5</div>
+                <img src="./gallery/c-2/2.jpg" style="width:100%">
+                <div class="text op-0">Caption Two</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 5</div>
+                <img src="./gallery/c-2/3.jpg" style="width:100%">
+                <div class="text op-0">Caption Three</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">4 / 5</div>
+                <img src="./gallery/c-2/4.jpg" style="width:100%">
+                <div class="text op-0">Caption Three</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">5 / 5</div>
+                <img src="./gallery/c-2/5.jpg" style="width:100%">
+                <div class="text op-0">Caption Three</div>
+            </div>
+
+            <!--
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+            -->
+
+            <!-- <a class="prev" onclick="plusSlides(-1)">
+                <img id="prev_img_0" src="./frames/12.png" alt="">
+            </a>
+
+            <a class="next" onclick="plusSlides(1)">
+                <img id="prev_img_1" src="./frames/13.png" alt="">
+            </a> -->
+        </div>
+        <div class="strelki-cont">
+
+            <a class="right-strelka" onclick="plusSlides(-1)">
+                <img id="prev_img_0" src="./frames/12.png" alt="">
+            </a>
+
+            <a class="left-strelka" onclick="plusSlides(-1)">
+                <img id="prev_img_1" src="./frames/13.png" alt="">
+            </a>
+            <a class="str" onclick="plusSlides(1)">
+                <img id="prev_img_0" src="./frames/12.png" alt="">
+            </a>
+        </div>
+        <br>
+
+        <div style="text-align:center; margin-bottom: 70px;">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+        </div>
+    </div>
+    <div class="signs-cont-2">
+        <div class="signn-2"></div>
+    </div>
+    <style>
+        .op-0 {
+            opacity: 0;
+        }
+        .strelki-cont {
+            margin-top: -120px;
+            position: relative;
+            z-index: 100;
+            width: 1590px;
+        }
+        .left-strelka {
+            position: absolute;
+            left: 0px;
+        }
+        .right-strelka {
+            opacity: 0;
+        }
+        .str {
+            position: absolute;
+            right: 0;
+        }
+        .gallery-container {
+            height: 1425px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+    </style>
+
+<div class="c-3-container">
+    <div class="c-3">
+        <img src="./gallery/c-3/1.jpg" alt="Фото 1" class="active">
+        <img src="./gallery/c-3/2.jpg" alt="Фото 2">
+        <img src="./gallery/c-3/3.jpg" alt="Фото 3">
+        <img src="./gallery/c-3/4.jpg" alt="Фото 4">
+        <img src="./gallery/c-3/5.jpg" alt="Фото 5">
+    </div>
+</div>
+<div class="signs-cont">
+    <div class="signn-3"></div>
+</div>
+<style>
+.c-3-container {
+    width: 1500px;
+    height: 900px;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+    border: 2px solid #ccc; /* Для визуального оформления */
+}
+
+.c-3-container img {
+    width: 100%; /* Каждое изображение занимает 100% ширины контейнера */
+    height: 100%; /* Каждое изображение занимает 100% высоты контейнера */
+    object-fit: cover; /* Обеспечиваем, чтобы изображение заполняло контейнер */
+    position: absolute; /* Позволяет накладывать изображения друг на друга */
+    top: 0;
+    left: 0;
+    opacity: 0; /* Начальная непрозрачность */
+    transition: opacity 1s ease; /* Плавный переход для непрозрачности */
+}
+
+.c-3-container img.active {
+    opacity: 1; /* Полная непрозрачность для активного изображения */
+}
+</style>
+<script>
+   const imagesq = document.querySelectorAll('.c-3-container img');
+let currentIndexq = 0;
+
+function showNextImage() {
+    imagesq[currentIndexq].classList.remove('active');
+    currentIndexq = (currentIndexq + 1) % imagesq.length;
+    imagesq[currentIndexq].classList.add('active');
+}
+
+setInterval(showNextImage, 3000);
+</script>
+    <div class="container-003">
+        <div class="normis-img">
+            <img src="./gallery/normis.png" alt="">
+        </div>
+    </div>
+
+    <style>
+        .container-003 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0px 0px 70px 0px;
+        }
+
+        .normis-img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .normis-img img {
+            box-sizing: border-box;
+            width: 1980px;
+        }
+    </style>
+
+    <div class="bottom-fon">
+        <div class="footer-imgg"></div>
+        <div class="tg-link-image">
+            <a href="https://t.me/">
+                <img src="./frames/tg-negate.png" alt="">
+            </a>
+        </div>
+
+        <img src="./frames/21.png" alt="">
+    </div>
+
+    <style>
+        .bottom-fon {
+            width: 98.8vw;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            position: relative;
+        }
+        .footer-imgg {
+            background-image: url('./gallery/z-1.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            width: 500px;
+            height: 200px;
+            z-index: 100;
+            z-index: 100;
+            position: absolute;
+            left: 30px;
+            margin-top: 60px;
+
+        }
+        .bottom-fon img {
+            width: 100%;
+            box-sizing: border-box;
+            object-fit: cover;
+        }
+
+        .tg-link-image {
+            position: absolute;
+            width: 20%;
+            margin-bottom: 10px;
+        }
+
+        .tg-link-image img {
+            width: 100%;
+            box-sizing: border-box;
+            object-fit: cover;
+        }
+    </style>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+
+</body>
+
+</html>
