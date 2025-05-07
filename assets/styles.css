@@ -1,0 +1,244 @@
+html body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+.none {
+    display: none !important;
+}
+.z1 {
+    z-index: 1;
+}
+.z2 {
+    z-index: 1;
+}
+.z3 {
+    z-index: 1;
+}
+.cont {
+    overflow: hidden;
+    width: 1800px;
+    margin-inline: auto;
+}
+.hidden {
+    overflow: hidden;
+
+}
+.rel {
+    position: relative;
+}
+.a00 {
+    top: 0;
+    left: 0;
+}
+.absolute {
+    position: absolute;
+}
+.def-img {
+    width: 100vw;
+}
+.fcc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.preload-slide {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url('../presets/project/2/fon.jpg');
+    z-index: 100;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.slide-1 {
+    background-color: #d5cbc5;
+}
+.fc {
+    display: flex;
+    flex-direction: column;
+}
+.aic {
+    align-items: center;
+}
+.preload-head {
+    width: 912px;
+    height: 912px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: absolute;
+    top: -520px;
+}
+.preload-head > img {
+    width: 912px;
+    height: 912px;
+}
+.preload-load {
+    width: 1080px;
+    overflow: hidden;
+    display: flex;
+    position: absolute;
+    top: 220px;
+}
+.preload-load > img {
+    width: 1076px;
+}
+.abs-1 {
+    position: absolute; /* Абсолютное позиционирование */
+    top: 70%; /* Смещение вниз на 50% высоты родителя */
+    left: 50%; /* Смещение вправо на 50% ширины родителя */
+    transform: translate(-50%, -50%); /* Сдвиг на половину ширины и высоты изображения */
+    width: 762px;
+}
+.slide-2 {
+    background-image: url('../presets/project/2/fon.jpg');
+    padding: 20px 0 0 0;
+}
+.slide-2 > div {
+    height: 1100px !important;
+
+}
+.slide-2-text {
+    height: 1100px;
+}
+.slide-2-tetka {
+    width: 550px;
+    height: 800px;
+    background-image: url('../presets/project/3/ezgif-3cd1925c4af141.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-top: 70px;
+}
+.slide-3 {
+    background-image: url('../presets/project/2/fon.jpg');
+}
+.image-container {
+    margin-inline: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+.image-container > img {
+    width: 1080px;
+    height: 1080px;
+    z-index: 10;
+}
+.scroll-glaz {
+    background-image: url('../presets/project/2/fon.jpg');
+}
+.scroll-glaz-sloi {
+    background-image: url('../presets/project/3/fon_masha.png');
+    width: 100vw;
+    height: 1080px;
+    background-size: 110%;
+    background-position: bottom center;
+    z-index: 8;
+}
+.footer1 {
+    background-image: url('../presets/project/2/fon.jpg');
+    margin-top: -50px;
+}
+.hide1 {
+    width: 900px;
+    height: 180px;
+    background-image: url('../presets/project/3/hide.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.footer-kod {
+    background-image: url('../presets/project/3/A08FA07F-004E-40B0-9D7B-1FB16D47A062.png');
+    width: 100%;
+    height: 355px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: -80px;
+
+}
+.footer-1-kod {
+    position: absolute;
+    bottom: 56px;
+    left: 22%;
+    display: flex;
+    align-items: center;
+
+}
+.footer-1-kod > input {
+    border: none;
+    outline: none;
+    border-bottom: 4px solid white !important;
+    color: white;
+    font-size: 42px;
+    font-weight: 600;
+    background-color: transparent;
+    width: 260px;
+    padding-bottom: 0;
+}
+.footer1-send {
+    width: 260px;
+    height: 100px;
+    background-image: url('../presets/project/3/buy.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.fon2 {
+    background-image: url('../presets/project/2/fon.jpg');
+}
+.items-container {
+    display: flex;
+    justify-content: space-between;
+    width: 1700px;
+    margin-inline: auto;
+}
+.items-container > div {
+    flex: 0 30%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.h2-nadpisi {
+    height: 280px;
+}
+.cont-img-container {
+    display: flex;
+}
+.cont-img-container > img {
+    width: 100%;
+}
+.sprite-2 {
+    padding: 26px 0;
+    width: 98%;
+    margin-inline: auto;
+}
+.sprite-2 > img {
+    width: 100%;
+    margin-inline: auto;
+}
+.footer2 > img {
+    width: 100vw;
+}
+.footer2-link {
+    width: 380px;
+    height: 120px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    background-image: url('../presets/project/4/tg-negate.png');
+    background-position: center;
+    background-size: contain;
+    bottom: 0px;
+}
+.image-container-2 {
+    margin-inline: auto;
+}
+.image-container-2 > img {
+    width: 1530px;
+
+}
