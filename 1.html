@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+    <script src="assets/preload.js" defer></script>
+    <script src="assets/hover1.js" defer></script>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <div class="preload-slide" id="preload">
+        <div class="fc aic rel">
+            <div class="preload-head">
+                <img src="presets/project/1/infulaBBB3.gif" alt="">
+            </div>
+            <div class="preload-load">
+                <img src="presets/project/1/ezgif-26e7342ce3c273.gif" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="hidden slide-1">
+        <img class="def-img"  src="presets/project/2/fon.jpg" alt="">
+        <img class="absolute a00 z2 def-img" src="presets/project/3/gif_all.gif" alt="">
+        <img class="absolute z3 abs-1" src="presets/project/3/ezgif-38adb7e8343efb.gif" alt="">
+    </div>
+    <div class="slide-2">
+        <div class="cont rel fcc">
+            <img src="presets/project/3/text_sona2.png" id="text2" class="cont absolute a00 slide-2-text" alt="">
+            <img src="presets/project/3/text_sona.png" id="text1" class=" z2 cont absolute a00 slide-2-text" alt="">
+            <div class="slide-2-tetka z3">
+
+            </div>
+        </div>
+    </div>
+    <div class="hidden def-img slide-3">
+        <img src="presets/project/3/ezgif-2c408f2b98ad7f.gif" class="def-img" alt="">
+    </div>
+    <div class="scroll-glaz rel ">
+        <div class="absolute scroll-glaz-sloi a00 "></div>
+        <div id="scroll-img-blin" class="image-container">
+            <img src="presets/project/3/masha/1.png" alt="Image 1" id="currentImage">
+        </div>
+    </div>
+    <script>
+        var pixels = 1080;
+
+        document.getElementById("scroll-img-blin").style.width = `${pixels}px`;
+        document.getElementById("scroll-img-blin").style.height = `${pixels}px`;
+        console.log(window.innerWidth)
+        console.log(window.innerWidth * 0.5)
+
+        const imageContainer = document.querySelector('.image-container');
+        const currentImage = document.getElementById('currentImage');
+        const images = [
+            "presets/project/3/masha/1.png",
+            "presets/project/3/masha/2.png",
+            "presets/project/3/masha/3.png",
+            "presets/project/3/masha/4.png",
+            "presets/project/3/masha/5.png",
+            "presets/project/3/masha/6.png",
+            "presets/project/3/masha/7.png",
+            "presets/project/3/masha/8.png",
+            "presets/project/3/masha/9.png",
+            "presets/project/3/masha/10.png",
+            "presets/project/3/masha/11.png",
+            "presets/project/3/masha/12.png",
+            "presets/project/3/masha/13.png",
+            "presets/project/3/masha/14.png",
+            "presets/project/3/masha/15.png",
+            "presets/project/3/masha/16.png",
+            "presets/project/3/masha/17.png",
+            // Добавьте сюда URL остальных изображений
+        ];
+        let currentIndex = 0;
+        let isHovered = false;
+
+        imageContainer.addEventListener('mouseenter', () => {
+            isHovered = true;
+        });
+
+        imageContainer.addEventListener('mouseleave', () => {
+            isHovered = false;
+        });
+
+        imageContainer.addEventListener('wheel', (event) => {
+            if (isHovered) {
+                event.preventDefault();
+                if (event.deltaY > 0) {
+                    currentIndex = (currentIndex + 1) % images.length;
+                } else {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                }
+                currentImage.src = images[currentIndex];
+            }
+        });
+    </script>
+    <div class="footer1">
+        <div>
+            <div class="hide1"></div>
+            <div class="footer-kod rel">
+                <div class="footer-1-kod">
+                    <input type="text"  value="20300525.34" id="buy-input">
+                    <div class="footer1-send" id="kupit"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        const inp = document.getElementById('buy-input')
+
+        document.getElementById('kupit').addEventListener('click', () => {
+            if(inp.value == '20300525.34') {
+                window.location.href = '/2.html'
+            }
+        })
+    </script>
+</body>
+</html>
