@@ -18,9 +18,10 @@ html body {
 }
 .cont {
     overflow: hidden;
-    width: 1800px;
+    width: 98%;
     margin-inline: auto;
 }
+
 .hidden {
     overflow: hidden;
 
@@ -94,7 +95,7 @@ html body {
     top: 70%; /* Смещение вниз на 50% высоты родителя */
     left: 50%; /* Смещение вправо на 50% ширины родителя */
     transform: translate(-50%, -50%); /* Сдвиг на половину ширины и высоты изображения */
-    width: 762px;
+    width: 39%;
 }
 .slide-2 {
     background-image: url('../presets/project/2/fon.jpg');
@@ -155,11 +156,10 @@ html body {
 .footer-kod {
     background-image: url('../presets/project/3/A08FA07F-004E-40B0-9D7B-1FB16D47A062.png');
     width: 100%;
-    height: 355px;
     background-size: contain;
     background-repeat: no-repeat;
     margin-top: -80px;
-
+    aspect-ratio: 5.385;
 }
 .footer-1-kod {
     position: absolute;
@@ -167,7 +167,6 @@ html body {
     left: 22%;
     display: flex;
     align-items: center;
-
 }
 .footer-1-kod > input {
     border: none;
@@ -241,4 +240,12 @@ html body {
 .image-container-2 > img {
     width: 1530px;
 
+}
+@media(min-width:760px) and (max-width:1650px) {
+    .abs-1 {
+        top: 54%;
+    }
+    .items-container, .image-container-2 > img {
+        width: 1460px;
+    }
 }
