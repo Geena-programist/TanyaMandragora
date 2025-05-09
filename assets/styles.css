@@ -92,7 +92,7 @@ html body {
 }
 .abs-1 {
     position: absolute; /* Абсолютное позиционирование */
-    top: 70%; /* Смещение вниз на 50% высоты родителя */
+    top: 50%; /* Смещение вниз на 50% высоты родителя */
     left: 50%; /* Смещение вправо на 50% ширины родителя */
     transform: translate(-50%, -50%); /* Сдвиг на половину ширины и высоты изображения */
     width: 39%;
@@ -242,10 +242,10 @@ html body {
 
 }
 @media(min-width:760px) and (max-width:1650px) {
-    .abs-1 {
-        top: 54%;
-    }
     .items-container, .image-container-2 > img {
         width: 1460px;
     }
+}
+@media(min-width:760px) and (max-width:1099px) {
+
 }
