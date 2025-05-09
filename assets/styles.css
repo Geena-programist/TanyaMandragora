@@ -236,16 +236,27 @@ html body {
 }
 .image-container-2 {
     margin-inline: auto;
+    position: relative;
+    width: 1530px;
+    height: 1000px;
+    
 }
 .image-container-2 > img {
     width: 1530px;
-
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    /* transition: opacity 0.5s ease; */
+}
+.image-container-2 > img.visible {
+    opacity: 1;
 }
 @media(min-width:760px) and (max-width:1650px) {
-    .items-container, .image-container-2 > img {
+    .items-container, .image-container-2 > img, .image-container-2 {
         width: 1460px;
     }
-}
-@media(min-width:760px) and (max-width:1099px) {
-
+     .image-container-2 {
+        height: 960px;
+     }
 }
