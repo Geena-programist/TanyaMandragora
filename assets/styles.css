@@ -183,8 +183,12 @@ html body {
     width: 260px;
     height: 100px;
     background-image: url('../presets/project/3/buy.png');
-    background-size: contain;
+    background-size: 105%;
+    background-position: center;
     background-repeat: no-repeat;
+    border: 1px solid white;
+    border-radius: 4px;
+    margin-left: 10px;
 }
 .fon2 {
     background-image: url('../presets/project/2/fon.jpg');
